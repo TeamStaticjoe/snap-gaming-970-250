@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.sd-gaming-970-250 {
+				width: 970px;
+				height: 250px;
+				background-color: #000;
+				overflow: hidden;
+				position: relative;
+				display: flex;
+			}
+
+			.top-text {
+				position: absolute;
+				z-index: 20;
+				top: 19px;
+				left: -200px;
+			}
+
+			.bottom-text {
+				position: absolute;
+				z-index: 20;
+				top: 150px;
+				left: 600px;
+			}
+
+			.lock-up {
+				position: absolute;
+				z-index: 20;
+				top: 300px;
+				right: 100px;
+			}
+
+			.button {
+				position: absolute;
+				z-index: 20;
+				bottom: 30px;
+				width: 102px;
+				height: 31px;
+				right: 140px;
+				opacity: 0;
+			}
+
+			.red-mat {
+				width: 970px;
+				height: 250px;
+				position: absolute;
+				z-index: 10;
+				transform: scale(500%), translateX(200px);
+			}
+			.image {
+				position: absolute;
+				z-index: 1;
+				transform-origin: top left;
+				transform: scale(140%);
+			}
+		</style>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	</head>
+	<body>
+		<div class="sd-gaming-970-250" width="970" height="250">
+			<img class="top-text" src="assets/gaming-970-250-top-text.png" alt="" />
+			<img
+				class="bottom-text"
+				src="assets/gaming-970-250-bottom-text.png"
+				alt=""
+			/>
+			<img class="lock-up" src="assets/gaming-970-250-lock-up.png" alt="" />
+			<img
+				class="button"
+				src="assets/gaming-970-250-button.png"
+				width="102"
+				height="31"
+				alt=""
+			/>
+			<img class="red-mat" src="assets/gaming-970-250-red-mat.png" alt="" />
+			<img class="image" src="assets/gaming-970-250-image.jpg" alt="" />
+		</div>
+	</body>
+	<script>
+		redMat = document.querySelector(".red-mat")
+		image = document.querySelector(".image")
+		topText = document.querySelector(".top-text")
+		bottomText = document.querySelector(".bottom-text")
+		lockUp = document.querySelector(".lock-up")
+		button = document.querySelector(".button")
+
+		const tl = gsap.timeline()
+
+		tl.set(redMat, {
+			translateOrigin: "25% 50%",
+			scaleX: "500%",
+			scaleY: "500%",
+			x: "1000px",
+		})
+			.set(topText, { x: -200 })
+			.set(bottomText, { x: 600 })
+			.set(lockUp, { y: 300 })
+			.set(image, { scaleX: "140%", scaleY: "140%" })
+
+			.to(redMat, {
+				y: 0,
+				scaleX: "100%",
+				scaleY: "100%",
+				x: 0,
+				duration: 4,
+				ease: "power3.in",
+			})
+			.fromTo(
+				image,
+				{ scaleX: "140%", scaleY: "140%" },
+				{ scaleX: "100%", scaleY: "100%", duration: 2, ease: "power1.in" },
+				"<2.5"
+			)
+			.to(topText, { x: 242, duration: 1, ease: "power1.inOut" }, "-=75%")
+			.to(bottomText, { x: -227, duration: 1, ease: "power1.inOut" }, "-=90%")
+			.to(lockUp, { y: -270, duration: 0.5, ease: "power1.inOut" })
+			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" })
+	</script>
+</html>
