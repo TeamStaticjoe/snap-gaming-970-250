@@ -105,8 +105,8 @@
 				scaleX: "100%",
 				scaleY: "100%",
 				x: 0,
-				duration: 4,
-				ease: "power3.in",
+				duration: 1.5,
+				ease: "power4.in",
 			})
 			.fromTo(
 				image,
@@ -116,15 +116,14 @@
 					y: 0,
 					scaleX: "38%",
 					scaleY: "38%",
-					duration: 2,
+					duration: 1,
 					ease: "power1.in",
 				},
-				"<2.5"
+				"<.75"
 			)
-			.to(topText, { x: 252, duration: 1, ease: "power1.inOut" }, "-=75%")
-			.to(bottomText, { x: -282, duration: 1, ease: "power1.inOut" }, "-=90%")
-			.to(lockUp, { y: -270, duration: 0.5, ease: "power1.inOut" })
-			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" })
-			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" })
+			.to(topText, { x: 252, duration: 1, ease: "power1.inOut" }, "-=1")
+			.to(bottomText, { x: -282, duration: 1, ease: "power1.inOut" }, "<.125")
+			.to(button, { autoAlpha: 1, duration: 0.5, ease: "power1.inOut" }, "<.75")
+			.to(lockUp, { y: -270, duration: 0.5, ease: "power1.inOut" }, "-=.65")
 	</script>
 </html>
